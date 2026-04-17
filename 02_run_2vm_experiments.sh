@@ -71,7 +71,7 @@ mkdir -p "$RESULTS_DIR"
 source "monitoring/lib_monitor.sh"
 
 info "Starting Minikube (2 nodes) for 2-VM experiments..."
-minikube status >/dev/null 2>&1 || minikube start --nodes 2 --driver=virtualbox
+minikube status >/dev/null 2>&1 || minikube start --nodes 2 --driver=virtualbox --memory=4096 --cpus=4
 eval $(minikube -p minikube docker-env)
 # Ensure sysstat in both nodes
 setup_minikube_nodes "minikube" "minikube-m02"
