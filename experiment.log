@@ -1,0 +1,17 @@
+=========================================================
+  Microservice Granularity Study — Experiment Log
+  Auto-updated by experiment runner scripts
+=========================================================
+
+[2026-04-16 18:57:11] [BUILD] Starting clone & build
+[2026-04-16 18:57:11] [BUILD] Build complete → onlineboutique/boutique
+[2026-04-16 20:12:33] [SETUP] Prometheus + Node Exporter setup
+[2026-04-17 16:05:50] [SETUP] Starting dependency installation
+[2026-04-17 16:07:53] [SETUP] Starting dependency installation
+[2026-04-17 16:07:53] [SETUP] Dependency installation complete
+[2026-04-17 16:08:43] [BUILD] Starting clone & build
+[2026-04-17 16:08:43] [BUILD] Build complete → onlineboutique/boutique
+[2026-04-17 16:18:20] [SETUP] Prometheus + Node Exporter setup
+[2026-04-17 16:18:55] [SETUP] Prometheus + Node Exporter setup
+[2026-04-17 16:20:13] [SETUP] Prometheus + Node Exporter setup
+[2026-04-17 16:20:31] [SETUP] Prometheus setup complete
