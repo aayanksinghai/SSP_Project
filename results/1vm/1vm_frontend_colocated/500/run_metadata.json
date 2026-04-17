@@ -1,0 +1,12 @@
+{
+  "vm_count": 1,
+  "config": "1vm_frontend_colocated",
+  "vus": 500,
+  "run_time_seconds": 300,
+  "start_ts": "2026-04-17T16:04:07Z",
+  "hostname": "aayanksinghai-Vivobook-ASUSLaptop-K3605ZF-K3605ZF",
+  "kernel": "6.17.0-20-generic",
+  "cpu_model": "12th Gen Intel(R) Core(TM) i5-12500H",
+  "cpu_cores": 16,
+  "mem_total_kb": 16033940
+}

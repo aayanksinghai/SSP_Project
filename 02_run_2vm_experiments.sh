@@ -15,8 +15,8 @@ BINARY="${BOUTIQUE_DIR}/boutique"
 CONFIGS_DIR="configs"
 RESULTS_DIR="results/2vm"
 LOG="experiment.log"
-HOST="http://localhost:8080"
-APP_PORT=8080
+HOST="http://localhost:8081"
+APP_PORT=8081
 SPAWN_DIVISOR=30
 RUN_TIME="300s"
 WARMUP_SLEEP=15
@@ -132,8 +132,8 @@ for CONFIG in "${CONFIGS[@]}"; do
         info "Waiting for all pods to be Ready..."
         kubectl wait --for=condition=Ready pods --all --timeout=300s || warn "Some pods not ready!"
 
-        info "Starting port-forward for service/boutique 8080..."
-        kubectl port-forward svc/boutique 8080:8080 > "${RUN_DIR}/port-forward.log" 2>&1 &
+        info "Starting port-forward for service/boutique 8081..."
+        kubectl port-forward svc/$(kubectl get svc -l serviceweaver/app=boutique -o jsonpath="{.items[0].metadata.name}") 8081:80 > "${RUN_DIR}/port-forward.log" 2>&1 &
         PF_PID=$!
 
         wait_for_ready "${HOST}" "$READINESS_TIMEOUT"
@@ -147,10 +147,11 @@ for CONFIG in "${CONFIGS[@]}"; do
         # ── Run Profiling & Locust ─────────────────────────────────────────────
         (
             sleep 120
-            collect_pprof "localhost:8080" "$PPROF_DIR" 60
+            collect_pprof "localhost:8081" "$PPROF_DIR" 60
         ) &
         PPROF_SCHED_PID=$!
 
+        set +e
         info "Running Locust..."
         locust \
             -f locustfile.py \
@@ -165,6 +166,7 @@ for CONFIG in "${CONFIGS[@]}"; do
             2>&1 | tee "${LOCUST_DIR}/locust.log"
 
         STATUS=$?
+        set -e
         wait $PPROF_SCHED_PID 2>/dev/null || true
 
         # ── Stop System Monitoring ─────────────────────────────────────────────

@@ -1,0 +1,8 @@
+role.rbac.authorization.k8s.io/serviceweaver-pods-getter created
+rolebinding.rbac.authorization.k8s.io/serviceweaver-default-pods-getter created
+configmap/config-6b3f99af created
+deployment.apps/boutique-backend-group-6b3f99af-5ee8e24d created
+horizontalpodautoscaler.autoscaling/boutique-backend-group-6b3f99af-5ee8e24d created
+service/boutique-6b3f99af created
+deployment.apps/boutique-frontend-group-6b3f99af-04face85 created
+horizontalpodautoscaler.autoscaling/boutique-frontend-group-6b3f99af-04face85 created

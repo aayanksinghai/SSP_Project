@@ -1,0 +1,56 @@
+[2026-04-17 21:18:25,080] aayanksinghai-Vivobook-ASUSLaptop-K3605ZF-K3605ZF/INFO/locust.main: Starting Locust 2.43.4
+[2026-04-17 21:18:25,081] aayanksinghai-Vivobook-ASUSLaptop-K3605ZF-K3605ZF/INFO/locust.main: Run time limit set to 300 seconds
+[2026-04-17 21:18:25,081] aayanksinghai-Vivobook-ASUSLaptop-K3605ZF-K3605ZF/INFO/locust.runners: Ramping to 1750 users at a rate of 58.00 per second
+[2026-04-17 21:18:55,196] aayanksinghai-Vivobook-ASUSLaptop-K3605ZF-K3605ZF/INFO/locust.runners: All users spawned: {"BoutiqueUser": 1750} (1750 total users)
+[2026-04-17 21:23:24,914] aayanksinghai-Vivobook-ASUSLaptop-K3605ZF-K3605ZF/INFO/locust.main: --run-time limit reached, shutting down
+[2026-04-17 21:23:24,995] aayanksinghai-Vivobook-ASUSLaptop-K3605ZF-K3605ZF/INFO/locust.main: Shutting down (exit code 1)
+Type     Name                                                                          # reqs      # fails |    Avg     Min     Max    Med |   req/s  failures/s
+--------|----------------------------------------------------------------------------|-------|-------------|-------|-------|-------|-------|--------|-----------
+GET      GET /                                                                          17120 15029(87.79%) |   3751       0  164303      1 |   57.10       50.13
+GET      GET /?currency=X                                                               13934 12305(88.31%) |   4008       0  164323      1 |   46.47       41.04
+GET      GET /?product_id=X                                                              1661 1473(88.68%) |   4083       0  164177      1 |    5.54        4.91
+GET      GET /cart                                                                       6986 6169(88.31%) |   4135       0  164311      1 |   23.30       20.58
+GET      GET /product/[id]                                                              12159 10641(87.52%) |   4034       0  164271      1 |   40.55       35.49
+POST     POST /cart (add)                                                                8537 7517(88.05%) |   3736       0  164391      1 |   28.47       25.07
+POST     POST /cart (pre-checkout add)                                                   3557 3132(88.05%) |   3064       0  164327      1 |   11.86       10.45
+POST     POST /cart/checkout                                                             3557 3134(88.11%) |    225       0  164211      1 |   11.86       10.45
+POST     POST /cart/empty                                                                3472 3072(88.48%) |   3968       0  164293      1 |   11.58       10.25
+POST     POST /setCurrency                                                               5170 4562(88.24%) |   4251       0  164391      1 |   17.24       15.22
+--------|----------------------------------------------------------------------------|-------|-------------|-------|-------|-------|-------|--------|-----------
+         Aggregated                                                                     76153 67034(88.03%) |   3731       0  164391      1 |  254.00      223.58
+
+Response time percentiles (approximated)
+Type     Name                                                                                  50%    66%    75%    80%    90%    95%    98%    99%  99.9% 99.99%   100% # reqs
+--------|--------------------------------------------------------------------------------|--------|------|------|------|------|------|------|------|------|------|------|------
+GET      GET /                                                                                   1      1      2      3      6     97 161000 163000 164000 164000 164000  17120
+GET      GET /?currency=X                                                                        1      1      2      3      7    100 161000 163000 164000 164000 164000  13934
+GET      GET /?product_id=X                                                                      1      1      2      2      6     76 161000 163000 164000 164000 164000   1661
+GET      GET /cart                                                                               1      1      2      3      7    110 161000 163000 164000 164000 164000   6986
+GET      GET /product/[id]                                                                       1      1      2      3      7    110 161000 163000 164000 164000 164000  12159
+POST     POST /cart (add)                                                                        1      1      2      3     13    130 161000 163000 164000 164000 164000   8537
+POST     POST /cart (pre-checkout add)                                                           1      1      2      3     11    120  30000 162000 164000 164000 164000   3557
+POST     POST /cart/checkout                                                                     1      1      2      2      7     35     78    270  30000 164000 164000   3557
+POST     POST /cart/empty                                                                        1      1      2      3     10    130 161000 163000 164000 164000 164000   3472
+POST     POST /setCurrency                                                                       1      1      2      3     11    130 161000 163000 164000 164000 164000   5170
+--------|--------------------------------------------------------------------------------|--------|------|------|------|------|------|------|------|------|------|------|------
+         Aggregated                                                                              1      1      2      3      8    110 161000 163000 164000 164000 164000  76153
+
+Error report
+# occurrences      Error                                                                                               
+------------------|---------------------------------------------------------------------------------------------------------------------------------------------
+7517               POST POST /cart (add): Unexpected status 0                                                          
+4562               POST POST /setCurrency: setCurrency failed: 0                                                       
+3072               POST POST /cart/empty: empty cart failed: 0                                                         
+6169               GET GET /cart: Unexpected status 0                                                                  
+10641              GET GET /product/[id]: Unexpected status 0                                                          
+15                 POST POST /cart (pre-checkout add): ConnectionResetError(104, 'Connection reset by peer')           
+15029              GET GET /: Unexpected status 0                                                                      
+12305              GET GET /?currency=X: Unexpected status 0                                                           
+1473               GET GET /?product_id=X: Unexpected status 0                                                         
+3134               POST POST /cart/checkout: Checkout failed: 0                                                        
+69                 POST POST /cart (pre-checkout add): RemoteDisconnected('Remote end closed connection without response')
+3048               POST POST /cart (pre-checkout add): ConnectionRefusedError(111, 'Connection refused')               
+------------------|---------------------------------------------------------------------------------------------------------------------------------------------
+
+[locust] Test starting → target: http://localhost:8081
+[locust] Test complete.

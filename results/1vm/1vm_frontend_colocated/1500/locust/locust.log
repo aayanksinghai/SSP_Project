@@ -1,0 +1,41 @@
+[2026-04-17 21:50:43,963] aayanksinghai-Vivobook-ASUSLaptop-K3605ZF-K3605ZF/INFO/locust.main: Starting Locust 2.43.4
+[2026-04-17 21:50:43,964] aayanksinghai-Vivobook-ASUSLaptop-K3605ZF-K3605ZF/INFO/locust.main: Run time limit set to 300 seconds
+[2026-04-17 21:50:43,964] aayanksinghai-Vivobook-ASUSLaptop-K3605ZF-K3605ZF/INFO/locust.runners: Ramping to 1500 users at a rate of 50.00 per second
+[2026-04-17 21:51:13,050] aayanksinghai-Vivobook-ASUSLaptop-K3605ZF-K3605ZF/INFO/locust.runners: All users spawned: {"BoutiqueUser": 1500} (1500 total users)
+[2026-04-17 21:54:03,983] aayanksinghai-Vivobook-ASUSLaptop-K3605ZF-K3605ZF/WARNING/root: CPU usage above 90%! This may constrain your throughput and may even give inconsistent response time measurements! See https://docs.locust.io/en/stable/running-distributed.html for how to distribute the load over multiple CPU cores or machines
+[2026-04-17 21:55:43,785] aayanksinghai-Vivobook-ASUSLaptop-K3605ZF-K3605ZF/INFO/locust.main: --run-time limit reached, shutting down
+[2026-04-17 21:55:43,979] aayanksinghai-Vivobook-ASUSLaptop-K3605ZF-K3605ZF/WARNING/locust.runners: CPU usage was too high at some point during the test! See https://docs.locust.io/en/stable/running-distributed.html for how to distribute the load over multiple CPU cores or machines
+[2026-04-17 21:55:43,979] aayanksinghai-Vivobook-ASUSLaptop-K3605ZF-K3605ZF/INFO/locust.main: Shutting down (exit code 0)
+Type     Name                                                                          # reqs      # fails |    Avg     Min     Max    Med |   req/s  failures/s
+--------|----------------------------------------------------------------------------|-------|-------------|-------|-------|-------|-------|--------|-----------
+GET      GET /                                                                          33834     0(0.00%) |     38       1    2953      9 |  112.79        0.00
+GET      GET /?currency=X                                                               26589     0(0.00%) |     39       1    2939      9 |   88.64        0.00
+GET      GET /?product_id=X                                                              3396     0(0.00%) |     42       2    2936      9 |   11.32        0.00
+GET      GET /cart                                                                      13393     0(0.00%) |     36       1    2880      9 |   44.65        0.00
+GET      GET /product/[id]                                                              23516     0(0.00%) |     34       1    2917      8 |   78.39        0.00
+POST     POST /cart (add)                                                               16843     0(0.00%) |     62       3    3823     23 |   56.15        0.00
+POST     POST /cart (pre-checkout add)                                                   6837     0(0.00%) |     62       3    3747     24 |   22.79        0.00
+POST     POST /cart/checkout                                                             6836     0(0.00%) |     31       2     802     17 |   22.79        0.00
+POST     POST /cart/empty                                                                6643     0(0.00%) |     53       3    3718     15 |   22.14        0.00
+POST     POST /setCurrency                                                               9996     0(0.00%) |     62       3    3710     22 |   33.32        0.00
+--------|----------------------------------------------------------------------------|-------|-------------|-------|-------|-------|-------|--------|-----------
+         Aggregated                                                                    147883     0(0.00%) |     44       1    3823     12 |  492.97        0.00
+
+Response time percentiles (approximated)
+Type     Name                                                                                  50%    66%    75%    80%    90%    95%    98%    99%  99.9% 99.99%   100% # reqs
+--------|--------------------------------------------------------------------------------|--------|------|------|------|------|------|------|------|------|------|------|------
+GET      GET /                                                                                   9     20     30     37     63     94    140    460   2700   2900   3000  33834
+GET      GET /?currency=X                                                                        9     20     30     37     63     94    140    710   2700   2900   2900  26589
+GET      GET /?product_id=X                                                                      9     20     30     37     63     98    150    980   2800   2900   2900   3396
+GET      GET /cart                                                                               9     19     28     35     59     86    130    590   2700   2800   2900  13393
+GET      GET /product/[id]                                                                       8     18     26     33     57     85    120    600   2700   2900   2900  23516
+POST     POST /cart (add)                                                                       23     48     55     65    110    150    210    500   3400   3800   3800  16843
+POST     POST /cart (pre-checkout add)                                                          24     49     56     66    100    140    200   1000   3300   3700   3700   6837
+POST     POST /cart/checkout                                                                    17     34     46     48     64     86    130    170    650    800    800   6836
+POST     POST /cart/empty                                                                       15     32     48     59     97    130    190    280   3300   3700   3700   6643
+POST     POST /setCurrency                                                                      22     47     53     63    100    140    200   1200   3300   3700   3700   9996
+--------|--------------------------------------------------------------------------------|--------|------|------|------|------|------|------|------|------|------|------|------
+         Aggregated                                                                             12     25     38     47     73    110    160    440   2800   3700   3800 147883
+
+[locust] Test starting → target: http://localhost:8081
+[locust] Test complete.

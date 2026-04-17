@@ -15,3 +15,70 @@
 [2026-04-17 16:18:55] [SETUP] Prometheus + Node Exporter setup
 [2026-04-17 16:20:13] [SETUP] Prometheus + Node Exporter setup
 [2026-04-17 16:20:31] [SETUP] Prometheus setup complete
+[2026-04-17 18:20:59] [1VM] ======== Starting 1-VM experiment suite ========
+[2026-04-17 18:20:59] [1VM] Config=1vm_monolith START
+[2026-04-17 18:20:59] [1VM] Config=1vm_monolith VUs=500 START
+[2026-04-17 18:58:25] [1VM] ======== Starting 1-VM experiment suite ========
+[2026-04-17 18:58:25] [1VM] Config=1vm_monolith START
+[2026-04-17 18:58:25] [1VM] Config=1vm_monolith VUs=500 START
+[2026-04-17 19:02:25] [1VM] ======== Starting 1-VM experiment suite ========
+[2026-04-17 19:02:25] [1VM] Config=1vm_monolith START
+[2026-04-17 19:02:25] [1VM] Config=1vm_monolith VUs=500 START
+[2026-04-17 19:06:20] [1VM] ======== Starting 1-VM experiment suite ========
+[2026-04-17 19:06:20] [1VM] Config=1vm_monolith START
+[2026-04-17 19:06:20] [1VM] Config=1vm_monolith VUs=500 START
+[2026-04-17 19:10:03] [1VM] ======== Starting 1-VM experiment suite ========
+[2026-04-17 19:10:03] [1VM] Config=1vm_monolith START
+[2026-04-17 19:10:03] [1VM] Config=1vm_monolith VUs=500 START
+[2026-04-17 20:05:57] [1VM] ======== Starting 1-VM experiment suite ========
+[2026-04-17 20:05:57] [1VM] Config=1vm_monolith START
+[2026-04-17 20:05:57] [1VM] Config=1vm_monolith VUs=500 START
+[2026-04-17 20:14:17] [1VM] ======== Starting 1-VM experiment suite ========
+[2026-04-17 20:14:17] [1VM] Config=1vm_monolith START
+[2026-04-17 20:14:17] [1VM] Config=1vm_monolith VUs=500 START
+[2026-04-17 20:19:33] [1VM] Config=1vm_monolith VUs=500 PARTIAL (exit=1)
+[2026-04-17 20:19:38] [1VM] Config=1vm_monolith VUs=750 START
+[2026-04-17 20:24:55] [1VM] Config=1vm_monolith VUs=750 PARTIAL (exit=1)
+[2026-04-17 20:25:03] [1VM] Config=1vm_monolith VUs=1000 START
+[2026-04-17 20:30:20] [1VM] Config=1vm_monolith VUs=1000 PARTIAL (exit=1)
+[2026-04-17 20:30:29] [1VM] Config=1vm_monolith VUs=1250 START
+[2026-04-17 20:35:46] [1VM] Config=1vm_monolith VUs=1250 PARTIAL (exit=1)
+[2026-04-17 20:35:54] [1VM] Config=1vm_monolith VUs=1500 START
+[2026-04-17 20:36:55] [1VM] ======== Starting 1-VM experiment suite ========
+[2026-04-17 20:36:55] [1VM] Config=1vm_monolith START
+[2026-04-17 20:36:55] [1VM] Config=1vm_monolith VUs=500 START
+[2026-04-17 20:42:11] [1VM] Config=1vm_monolith VUs=500 SUCCESS
+[2026-04-17 20:42:20] [1VM] Config=1vm_monolith VUs=750 START
+[2026-04-17 20:47:37] [1VM] Config=1vm_monolith VUs=750 SUCCESS
+[2026-04-17 20:47:46] [1VM] Config=1vm_monolith VUs=1000 START
+[2026-04-17 20:51:07] [1VM] ======== Starting 1-VM experiment suite ========
+[2026-04-17 20:51:07] [1VM] Config=1vm_monolith START
+[2026-04-17 20:51:07] [1VM] Config=1vm_monolith VUs=500 START
+[2026-04-17 20:56:26] [1VM] Config=1vm_monolith VUs=500 SUCCESS
+[2026-04-17 20:56:34] [1VM] Config=1vm_monolith VUs=750 START
+[2026-04-17 21:01:49] [1VM] Config=1vm_monolith VUs=750 SUCCESS
+[2026-04-17 21:01:57] [1VM] Config=1vm_monolith VUs=1000 START
+[2026-04-17 21:07:12] [1VM] Config=1vm_monolith VUs=1000 SUCCESS
+[2026-04-17 21:07:21] [1VM] Config=1vm_monolith VUs=1250 START
+[2026-04-17 21:12:37] [1VM] Config=1vm_monolith VUs=1250 SUCCESS
+[2026-04-17 21:12:46] [1VM] Config=1vm_monolith VUs=1500 START
+[2026-04-17 21:18:02] [1VM] Config=1vm_monolith VUs=1500 SUCCESS
+[2026-04-17 21:18:10] [1VM] Config=1vm_monolith VUs=1750 START
+[2026-04-17 21:23:26] [1VM] Config=1vm_monolith VUs=1750 PARTIAL (exit=1)
+[2026-04-17 21:23:31] [1VM] Config=1vm_monolith VUs=2000 START
+[2026-04-17 21:28:46] [1VM] Config=1vm_monolith VUs=2000 PARTIAL (exit=1)
+[2026-04-17 21:28:51] [1VM] Config=1vm_monolith DONE
+[2026-04-17 21:28:51] [1VM] Config=1vm_frontend_colocated START
+[2026-04-17 21:28:51] [1VM] Config=1vm_frontend_colocated VUs=500 START
+[2026-04-17 21:34:07] [1VM] Config=1vm_frontend_colocated VUs=500 SUCCESS
+[2026-04-17 21:34:15] [1VM] Config=1vm_frontend_colocated VUs=750 START
+[2026-04-17 21:39:31] [1VM] Config=1vm_frontend_colocated VUs=750 SUCCESS
+[2026-04-17 21:39:39] [1VM] Config=1vm_frontend_colocated VUs=1000 START
+[2026-04-17 21:44:55] [1VM] Config=1vm_frontend_colocated VUs=1000 SUCCESS
+[2026-04-17 21:45:04] [1VM] Config=1vm_frontend_colocated VUs=1250 START
+[2026-04-17 21:50:20] [1VM] Config=1vm_frontend_colocated VUs=1250 SUCCESS
+[2026-04-17 21:50:28] [1VM] Config=1vm_frontend_colocated VUs=1500 START
+[2026-04-17 21:55:45] [1VM] Config=1vm_frontend_colocated VUs=1500 SUCCESS
+[2026-04-17 21:55:55] [1VM] Config=1vm_frontend_colocated VUs=1750 START
+[2026-04-17 22:01:13] [1VM] Config=1vm_frontend_colocated VUs=1750 PARTIAL (exit=1)
+[2026-04-17 22:02:42] [1VM] Config=1vm_frontend_colocated VUs=2000 START

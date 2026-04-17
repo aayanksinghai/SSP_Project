@@ -1,0 +1,13 @@
+Method,Name,Error,Occurrences
+GET,GET /,CatchResponseError('Unexpected status 0'),14914
+POST,POST /setCurrency,CatchResponseError('setCurrency failed: 0'),4531
+POST,POST /cart (pre-checkout add),RemoteDisconnected('Remote end closed connection without response'),69
+GET,GET /product/[id],CatchResponseError('Unexpected status 0'),10558
+POST,POST /cart (pre-checkout add),"ConnectionRefusedError(111, 'Connection refused')",3022
+GET,GET /?currency=X,CatchResponseError('Unexpected status 0'),12217
+POST,POST /cart/checkout,CatchResponseError('Checkout failed: 0'),3108
+GET,GET /cart,CatchResponseError('Unexpected status 0'),6115
+POST,POST /cart (pre-checkout add),"ConnectionResetError(104, 'Connection reset by peer')",15
+POST,POST /cart/empty,CatchResponseError('empty cart failed: 0'),3052
+POST,POST /cart (add),CatchResponseError('Unexpected status 0'),7450
+GET,GET /?product_id=X,CatchResponseError('Unexpected status 0'),1462

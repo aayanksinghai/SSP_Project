@@ -6,4 +6,4 @@ listeners:
 groups:
   - name: frontend-group
     components:
-      - github.com/ServiceWeaver/onlineboutique/frontend/T
+      - github.com/ServiceWeaver/weaver/Main

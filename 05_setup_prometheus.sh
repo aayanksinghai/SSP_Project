@@ -97,7 +97,7 @@ scrape_configs:
   # Online Boutique app — Service Weaver exposes metrics at /metrics
   - job_name: 'boutique_app'
     static_configs:
-      - targets: ['localhost:8080']
+      - targets: ['localhost:8081']
     metrics_path: '/metrics'
     scrape_timeout: 5s
 

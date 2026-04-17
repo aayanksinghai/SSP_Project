@@ -4,7 +4,7 @@
 # =============================================================================
 # For each configuration:
 #   • Starts the Online Boutique with `weaver multi deploy`
-#   • Waits for HTTP readiness on :8080
+#   • Waits for HTTP readiness on :8081
 #   • Iterates workload levels: 500, 750, 1000, 1250, 1500, 1750, 2000 VUs
 #   • Each level: 5 minutes of load, spawn rate = VUs/30
 #   • Saves Locust CSV to results/1vm/<config>/<vus>/
@@ -25,8 +25,8 @@ BINARY="${BOUTIQUE_DIR}/boutique"
 CONFIGS_DIR="configs"
 RESULTS_DIR="results/1vm"
 LOG="experiment.log"
-HOST="http://localhost:8080"
-APP_PORT=8080
+HOST="http://localhost:8081"
+APP_PORT=8081
 SPAWN_DIVISOR=30          # spawn rate = VUs / SPAWN_DIVISOR  (≈1 new user/s per 30 VUs)
 RUN_TIME="300s"           # 5 minutes per workload level
 WARMUP_SLEEP=10           # seconds to wait after app start before testing
@@ -126,8 +126,8 @@ for CONFIG in "${CONFIGS[@]}"; do
         info "Waiting for all pods to be Ready..."
         kubectl wait --for=condition=Ready pods --all --timeout=300s || warn "Some pods not ready!"
         
-        info "Starting port-forward for service/boutique 8080..."
-        kubectl port-forward svc/boutique 8080:8080 > "${RUN_DIR}/port-forward.log" 2>&1 &
+        info "Starting port-forward for service/boutique 8081..."
+        kubectl port-forward svc/$(kubectl get svc -l serviceweaver/app=boutique -o jsonpath="{.items[0].metadata.name}") 8081:80 > "${RUN_DIR}/port-forward.log" 2>&1 &
         APP_PID=$!
         
         wait_for_ready "${HOST}" "$READINESS_TIMEOUT"
@@ -142,11 +142,12 @@ for CONFIG in "${CONFIGS[@]}"; do
         # e.g., wait 120s, profile 60s
         (
             sleep 120
-            collect_pprof "localhost:8080" "$PPROF_DIR" 60
+            collect_pprof "localhost:8081" "$PPROF_DIR" 60
         ) &
         PPROF_SCHED_PID=$!
 
         # ── Run Locust ─────────────────────────────────────────────────────────
+        set +e
         info "Running Locust..."
         locust \
             -f locustfile.py \
@@ -161,6 +162,7 @@ for CONFIG in "${CONFIGS[@]}"; do
             2>&1 | tee "${LOCUST_DIR}/locust.log"
 
         STATUS=$?
+        set -e
         
         wait $PPROF_SCHED_PID 2>/dev/null || true
 
@@ -182,6 +184,7 @@ for CONFIG in "${CONFIGS[@]}"; do
         fi
 
         # ── Stop app ───────────────────────────────────────────────────────────
+        fuser -k 8081/tcp || true
         kill_app "$APP_PID"  # kills port-forward
         
         info "Cleaning up K8s deployment..."

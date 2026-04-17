@@ -2,28 +2,28 @@
 # prometheus.yml — SSP Granularity Study
 # =============================================================================
 global:
-  scrape_interval:     5s   # High frequency for experiment windows
+  scrape_interval: 5s # High frequency for experiment windows
   evaluation_interval: 5s
 
 scrape_configs:
   # Prometheus itself
-  - job_name: 'prometheus'
+  - job_name: "prometheus"
     static_configs:
-      - targets: ['localhost:9090']
+      - targets: ["localhost:9090"]
 
   # Node Exporter — host-level CPU, memory, disk, network
-  - job_name: 'node_exporter'
+  - job_name: "node_exporter"
     static_configs:
-      - targets: ['localhost:9100']
+      - targets: ["localhost:9100"]
     relabel_configs:
       - source_labels: [__address__]
         target_label: instance
 
   # Online Boutique app — Service Weaver exposes metrics at /metrics
-  - job_name: 'boutique_app'
+  - job_name: "boutique_app"
     static_configs:
-      - targets: ['localhost:8080']
-    metrics_path: '/metrics'
+      - targets: ["localhost:8081"]
+    metrics_path: "/metrics"
     scrape_timeout: 5s
 
   # Second VM node exporter (uncomment and replace IP for 2-VM experiments)
